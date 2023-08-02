@@ -10,6 +10,7 @@ export default function DogGrid({ selectedOption, teams }) {
       setTeam(selectedTeam);
     }
   }, [selectedOption, teams]);
+  //console.log(team?.players)
   return (
     <>
       {selectedOption === "0" ? (
