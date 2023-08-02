@@ -18,13 +18,11 @@ export default function DogGrid({ selectedOption, teams }) {
         <div>
           <h1>Team: {team.name}</h1>
           <h2>Players</h2>
-          <ul>
+          <div>
             {team.players?.map((player) => (
-              <li key={player.id}>
-                <DogCard player={player} />
-              </li>
+                <DogCard key={player.id} player={player} />
             ))}
-          </ul>
+          </div>
         </div>
       ) : (
         <h1>Loading...</h1>
