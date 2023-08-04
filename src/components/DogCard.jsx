@@ -1,17 +1,20 @@
 import DeleteButton from "./DeleteButton";
 import MoreInfoButton from "./MoreInfoButton";
+import { capitalize } from "../logic/info";
 
 
 export default function DogCard( {player} ) {
 
     return (
-        <div>
-            <img src={player.imageUrl}/>
-            <h1>{player.name}</h1>
-            <h2>{player.breed}</h2>
-            <h3>{player.status.charAt(0).toUpperCase() + player.status.slice(1)}</h3>
-            <MoreInfoButton />
-            <DeleteButton />
+        <div className="card">
+            <img className="card-img-top" src={player.imageUrl}/>
+            <div>
+                <h5>{player.name}</h5>
+                <p>{player.breed}</p>
+                <p>{capitalize(player.status)}</p>
+                <MoreInfoButton id={player.id}/>
+                <DeleteButton id={player.id}/>
+            </div>
         </div>
         
     )

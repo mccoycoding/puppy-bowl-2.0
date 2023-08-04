@@ -1,8 +1,19 @@
+import { PLAYERS } from "../logic/info"
+
+export default function DeleteButton( {id} ) {
+
+    const handleClick = async () => {
+        try {
+            const response = await fetch(`${PLAYERS}/${id}`, {method: 'DELETE'});
+            console.log('Player Deleted')
+        } catch (error) {
+            console.error(error)
+        }
 
 
-export default function DeleteButton() {
-
+    }
+ 
     return (
-        <button>Delete</button>
+        <button onClick={handleClick} className="btn btn-danger">Delete</button>
     )
 }

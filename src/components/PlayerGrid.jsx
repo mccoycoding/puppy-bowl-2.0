@@ -1,33 +1,22 @@
-import { PLAYERS } from "../logic/info";
-import { useState, useEffect} from 'react'
 import DogCard from "./DogCard";
 
-export default function PlayerGrid() {
-    const [players, setPlayers] = useState([]);
-
-    useEffect(() => {
-        try {
-            const fetchPlayers = async () => {
-                const response = await fetch(PLAYERS);
-                const result = await response.json();
-
-                setPlayers(result.data.players)
-            }
-        } catch (error) {
-            
-        }
-    })
+export default function PlayerGrid( {players} ) {
+    
 
 
     return (
-        <>
+        <div className="container-fluid text-center">
             <h2>Players</h2>
-            {players.length === 0 ? <h2>No current players, check back later!</h2> : (
-                
-                players?.map(player => {
-                    <DogCard key={player.id} player={player}/>
-                })
-            )}
-        </>
+            <div className="row">
+                {players.length === 0 ? <h2>No current players, check back later!</h2> : (
+                    players?.map(player => (
+                        <div key={player.id} className="col-lg-2 col-md-3 col-sm-4 mb-3">
+                            <DogCard key={player.id + "card"}  player={player}/>
+                        </div>
+                        
+                    ))
+                )}
+            </div>
+        </div>
     )
 }

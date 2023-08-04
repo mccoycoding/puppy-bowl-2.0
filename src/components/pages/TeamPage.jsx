@@ -1,10 +1,9 @@
-import NavBar from "./NavBar"
-import DogTeamGrid from "./DogTeamGrid"
-import TeamSelect from "./TeamSelect"
+import NavBar from "../NavBar"
+import DogTeamGrid from "../DogTeamGrid"
 import { useState, useEffect } from "react"
-import { TEAMS } from '../logic/info'
+import { TEAMS } from '../../logic/info'
 
-export default function Home() {
+export default function TeamPage() {
 
       //Define State Variables
     const [teams, setTeams] = useState([]);
@@ -29,8 +28,7 @@ export default function Home() {
     return (
         <>
             <NavBar />
-            <TeamSelect selectedOption={selectedOption} teams={teams} setSelectedOption={setSelectedOption}/>
-            <DogTeamGrid selectedOption={selectedOption} teams={teams}/>
+            <DogTeamGrid selectedOption={selectedOption} teams={teams} setSelectedOption={setSelectedOption}/>
         </>
         
     )

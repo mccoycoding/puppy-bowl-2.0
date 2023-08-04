@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import TeamSelect from "./TeamSelect";
 import DogCard from "./DogCard";
 
-export default function DogTeamGrid({ selectedOption, teams }) {
+export default function DogTeamGrid({ selectedOption, teams, setSelectedOption }) {
   const [team, setTeam] = useState(null);
 
   useEffect(() => {
@@ -15,9 +16,14 @@ export default function DogTeamGrid({ selectedOption, teams }) {
   return (
     <>
       {selectedOption === "0" ? (
-        <h2>Select a Team!</h2>
-      ) : team ? (
         <div>
+          <h2 className="text-center">Select a Team!</h2>
+          <TeamSelect selectedOption={selectedOption} teams={teams} setSelectedOption={setSelectedOption}/>
+        </div>
+        
+      ) : team ? (
+        <div className="contianer-fluid text-center">
+          <TeamSelect selectedOption={selectedOption} teams={teams} setSelectedOption={setSelectedOption}/>
           <h1>Team: {team.name}</h1>
           <h2>Players</h2>
           <div>
