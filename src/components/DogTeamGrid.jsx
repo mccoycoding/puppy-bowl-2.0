@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import DogCard from "./DogCard";
 
-export default function DogGrid({ selectedOption, teams }) {
+export default function DogTeamGrid({ selectedOption, teams }) {
   const [team, setTeam] = useState(null);
 
   useEffect(() => {
@@ -10,6 +10,7 @@ export default function DogGrid({ selectedOption, teams }) {
       setTeam(selectedTeam);
     }
   }, [selectedOption, teams]);
+  //console.log(team?.players)
   return (
     <>
       {selectedOption === "0" ? (
@@ -18,13 +19,11 @@ export default function DogGrid({ selectedOption, teams }) {
         <div>
           <h1>Team: {team.name}</h1>
           <h2>Players</h2>
-          <ul>
+          <div>
             {team.players?.map((player) => (
-              <li key={player.id}>
-                <DogCard player={player} />
-              </li>
+                <DogCard key={player.id} player={player} />
             ))}
-          </ul>
+          </div>
         </div>
       ) : (
         <h1>Loading...</h1>

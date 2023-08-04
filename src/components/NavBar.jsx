@@ -1,4 +1,5 @@
 import TeamSelect from "./TeamSelect";
+import { Link } from "react-router-dom";
 
 
 export default function NavBar( {selectedOption, teams, setSelectedOption}) {
@@ -8,7 +9,8 @@ export default function NavBar( {selectedOption, teams, setSelectedOption}) {
             <ul>
                 <li><a href="">GitHub</a></li>
                 <li><a href="">Canvas</a></li>
-                <li><TeamSelect selectedOption={selectedOption} teams={teams} setSelectedOption={setSelectedOption}/></li>
+                <li><Link to="/players">View All Players</Link></li>
+                <li><Link to="/">Home</Link></li>
             </ul>
         </nav>
     )
