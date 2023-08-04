@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import DogCard from "./DogCard";
 
-export default function DogGrid({ selectedOption, teams }) {
+export default function DogTeamGrid({ selectedOption, teams }) {
   const [team, setTeam] = useState(null);
 
   useEffect(() => {
