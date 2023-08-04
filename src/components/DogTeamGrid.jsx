@@ -11,6 +11,7 @@ export default function DogTeamGrid({ selectedOption, teams }) {
     }
   }, [selectedOption, teams]);
   //console.log(team?.players)
+
   return (
     <>
       {selectedOption === "0" ? (
@@ -20,9 +21,11 @@ export default function DogTeamGrid({ selectedOption, teams }) {
           <h1>Team: {team.name}</h1>
           <h2>Players</h2>
           <div>
-            {team.players?.map((player) => (
+            {team.players.length === 0 ? <h2>No current players, check back later!</h2> : (
+              team.players?.map((player) => (
                 <DogCard key={player.id} player={player} />
-            ))}
+            ))
+            )}
           </div>
         </div>
       ) : (
