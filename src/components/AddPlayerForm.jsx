@@ -18,7 +18,7 @@ export default function AddPlayerForm( {teams} ) {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ name, breed, status, team })
+                body: JSON.stringify({ name, breed, status })
             })
             const result = await response.json();
             console.log('Success!')
