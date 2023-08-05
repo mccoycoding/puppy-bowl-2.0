@@ -28,6 +28,7 @@ export default function NewPlayerPage() {
     return(
         <>
             <NavBar />
+            <h2 className="text-center">Add a new Player!</h2>
             <AddPlayerForm teams={teams}/>
         </>
     )

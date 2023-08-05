@@ -30,17 +30,23 @@ export default function AddPlayerForm( {teams} ) {
 
 
     return (
-        <form onSubmit={handleSubmit} action="">
-            <label htmlFor="">Name</label>
-            <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-            <label htmlFor="">Breed</label>
-            <input type="text" value={breed} onChange={(e) => setBreed(e.target.value)}/>
-            <label htmlFor="">Status</label>
-            <select value={status} onChange={(e) => setStatus(e.target.value)}>
-                <option value="bench">Bench</option>
-                <option value="field">Field</option>
-            </select>
-            <button type="submit">Submit</button>
+        <form className="text-center" onSubmit={handleSubmit} action="">
+            <div className="form-floating mb-3 pb-3">
+                <input className="form-control" id="floating-name" type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Rex"/>
+                <label htmlFor="floating-name">Name: </label>
+            </div>
+            <div className="form-floating mb-3 pb-3">
+                <input className="form-control" id="floatings-breed" type="text" value={breed} onChange={(e) => setBreed(e.target.value)} placeholder="Mixed Breed"/>
+                <label htmlFor="floating-breed">Breed: </label>
+            </div>
+            <div className="form-floating mb-3 pb-3">
+                <select className="form-select" id="floating-status" value={status} onChange={(e) => setStatus(e.target.value)}>
+                    <option value="bench">Bench</option>
+                    <option value="field">Field</option>
+                </select>
+                <label htmlFor="floating-status">Status: </label>
+            </div>
+            <button className="btn btn-success" type="submit">Submit</button>
         </form>
     )
 }
