@@ -1,7 +1,40 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { PLAYERS, capitalize} from "../logic/info";
 
 
 export default function NavBar( {selectedOption, teams, setSelectedOption}) {
+    const [search, setSearch] = useState('');
+    const [players, setPlayers] = useState([]);
+
+    useEffect(() => {
+        const fetchPlayers = async () => {
+            try {
+                const response = await fetch(PLAYERS)
+                const result = await response.json();
+                setPlayers(result.data.players)
+            } catch (error) {
+                console.error(error)
+            }
+        }
+        fetchPlayers();
+    }, [players])
+
+
+    const handleSearchChange = (e) => {
+        setSearch(e.target.value)
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
+
+    const nameList = players?.map(player => player.name)
+
+
+    const filteredItems = nameList?.filter(item => item.toLowerCase().startsWith(search.toLowerCase));
+
+    
+
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
@@ -29,6 +62,16 @@ export default function NavBar( {selectedOption, teams, setSelectedOption}) {
                             <Link className="nav-link" to="/new-player">New Player</Link>
                         </li>
                     </ul>
+                    <form onSubmit={handleSubmit} className="d-flex" role="search">
+                        <input
+                            className="form-control me-2"
+                            placeholder="Search"
+                            type="search"
+                            value={search}
+                            onChange={handleSearchChange} />
+                        <button type="submit" className="btn btn-outline-primary">Search</button>
+                    </form>
+                    
                 </div>
             </div>
         </nav>
