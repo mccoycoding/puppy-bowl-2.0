@@ -13,7 +13,6 @@ export default function PlayerGrid( {players} ) {
                         <div key={player.id} className="col-lg-2 col-md-3 col-sm-4 mb-3">
                             <DogCard key={player.id + "card"}  player={player}/>
                         </div>
-                        
                     ))
                 )}
             </div>

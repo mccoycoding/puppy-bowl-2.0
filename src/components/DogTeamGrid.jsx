@@ -26,10 +26,12 @@ export default function DogTeamGrid({ selectedOption, teams, setSelectedOption }
           <TeamSelect selectedOption={selectedOption} teams={teams} setSelectedOption={setSelectedOption}/>
           <h1>Team: {team.name}</h1>
           <h2>Players</h2>
-          <div>
+          <div className="row">
             {team.players.length === 0 ? <h2>No current players, check back later!</h2> : (
               team.players?.map((player) => (
-                <DogCard key={player.id} player={player} />
+                <div className="col-lg-2 col-md-3 col-sm-4 mb-3">
+                  <DogCard key={player.id + "card"} player={player} />
+                </div>
             ))
             )}
           </div>
